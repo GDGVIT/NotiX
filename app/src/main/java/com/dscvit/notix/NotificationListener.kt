@@ -1,4 +1,4 @@
-package com.example.notix
+package com.dscvit.notix
 
 import android.service.notification.NotificationListenerService
 import android.service.notification.StatusBarNotification
