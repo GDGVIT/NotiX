@@ -32,11 +32,7 @@
             </intent-filter>
             <meta-data
                 android:name="android.service.notification.default_filter_types"
-                android:value="conversations|alerting">
-            </meta-data>
-            <meta-data
-                android:name="android.service.notification.disabled_filter_types"
-                android:value="ongoing|silent">
+                android:value="conversations|alerting|ongoing|silent">
             </meta-data>
         </service>
     </application>
