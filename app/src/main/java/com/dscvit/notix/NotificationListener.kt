@@ -3,6 +3,7 @@ package com.dscvit.notix
 import android.service.notification.NotificationListenerService
 import android.service.notification.StatusBarNotification
 import android.util.Log
+import com.dscvit.notix.util.SpamClassifier.spamClassifyMessage
 
 class NotificationListener : NotificationListenerService() {
 
@@ -11,6 +12,17 @@ class NotificationListener : NotificationListenerService() {
     }
 
     override fun onNotificationPosted(newNotification: StatusBarNotification) {
+        // Building the input message string
+        var message = ""
+        newNotification.notification.extras.apply {
+            message += getString("android.title") + " "
+            message += getString("android.text")
+        }
+
+        // Classify the notification
+        val isSpam: Boolean = spamClassifyMessage(this, message)
+
+        // Logging the notification
         Log.i(
             TAG,
             "------------OnNotificationPosted" +
@@ -21,7 +33,8 @@ class NotificationListener : NotificationListenerService() {
                     "\n" + "text: " + newNotification.notification.extras.getString("android.text") +
                     "\n" + "tickerText: " + newNotification.notification.tickerText +
                     "\n" + "postedTime: " + newNotification.postTime +
-                    "\n" + "package name: " + newNotification.packageName
+                    "\n" + "packageName: " + newNotification.packageName +
+                    "\n" + "isSpam: " + isSpam.toString()
 
             /*"-------- onNotificationPosted(): " + "ID :" + newNotification.id +
                     "\n" + newNotification.notification.extras.getString("android.title") +
