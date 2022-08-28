@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color2"
+    tools:context=".ui.spam.SpamFragment">
+
+    <ImageView
+        android:id="@+id/spamBackButton"
+        android:layout_width="41dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="10dp"
+        android:padding="10dp"
+        android:src="@drawable/ic_baseline_arrow_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/opensans_bold"
+        android:text="Spam"
+        android:textColor="@color/text_color"
+        android:textSize="33sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/spamBackButton"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/spamSettings"
+        android:layout_width="41dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:padding="5dp"
+        android:visibility="gone"
+        android:src="@drawable/ic_settings"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/defaultSpamText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No Spam Notifications are found."
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/spamRV"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="20dp"
+        android:clipToPadding="false"
+        android:paddingBottom="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.066" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/spamSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="22dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
